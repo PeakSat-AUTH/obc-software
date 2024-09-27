@@ -5,18 +5,18 @@ void initializeTasks() {
     BootCounter::incrementBootCounter();
 
     uartGatekeeperTask.emplace();
-    timeKeepingTask.emplace();
-    ambientTemperatureTask.emplace();
-    watchdogTask.emplace();
-    mcuTemperatureTask.emplace();
+//    timeKeepingTask.emplace();
+//    ambientTemperatureTask.emplace();
+//    watchdogTask.emplace();
+//    mcuTemperatureTask.emplace();
     canGatekeeperTask.emplace();
     canTestTask.emplace();
 
-    ambientTemperatureTask->createTask();
-    mcuTemperatureTask->createTask();
-    timeKeepingTask->createTask();
+//    ambientTemperatureTask->createTask();
+//    mcuTemperatureTask->createTask();
+//    timeKeepingTask->createTask();
     uartGatekeeperTask->createTask();
-    watchdogTask->createTask();
+//    watchdogTask->createTask();
     canGatekeeperTask->createTask();
     canTestTask->createTask();
 }

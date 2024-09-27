@@ -53,7 +53,7 @@ private:
      */
     static inline uint8_t incomingQueueStorageArea[CAN::FrameQueueSize * sizeof(CAN::Frame)];
 
-    const static inline uint16_t TaskStackDepth = 1300;
+    const static inline uint16_t TaskStackDepth = 13000;
 
     StackType_t taskStack[TaskStackDepth];
 

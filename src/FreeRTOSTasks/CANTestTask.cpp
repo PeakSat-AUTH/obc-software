@@ -2,7 +2,7 @@
 #include "CANGatekeeperTask.hpp"
 
 void CANTestTask::execute() {
-    CAN::Application::switchBus(CAN::Driver::Redundant);
+    CAN::Application::switchBus(CAN::Driver::Main);
 //    CAN::Frame message = {};
 //
 //    /**
@@ -37,9 +37,14 @@ void CANTestTask::execute() {
     /**
      * Log messages utilizing multiple messages
      */
+    etl::array<uint16_t, CAN::TPMessageMaximumArguments> parameterIDs = {2000, 2001, 2002, 2003, 2004};
     while (true) {
-        const String<ECSSMaxMessageSize> logString = "This is a log message going from the development board to the eqm that consists of more than 64 chars";
-        CAN::Application::createLogMessage(CAN::NodeIDs::OBC, true, logString, false);
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        const String<ECSSMaxMessageSize> logString = "Never gonna give you up, never gonna let you down";
+        CAN::Application::createLogMessage(CAN::NodeIDs::COMMS, false, logString, false);
+        vTaskDelay(pdMS_TO_TICKS(500));
+//        CAN::Application::createRequestParametersMessage(CAN::NodeIDs::COMMS, false, parameterIDs, false);
+//        vTaskDelay(pdMS_TO_TICKS(500));
+//        CAN::Application::sendPingMessage(CAN::NodeIDs::COMMS, false);
+//        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
